@@ -1,0 +1,38 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+    <h2 class="mb-4">Member Bulanan</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Jenis Kelamin</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Nomor HP</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member in monthly_members %}
+                    <tr>
+                        <td>{{ member.id }}</td>
+                        <td>{{ member.nama }}</td>
+                        <td>{{ member.jenis_kelamin }}</td>
+                        <td>{{ member.alamat }}</td>
+                        <td>{{ member.nomor_hp }}</td>
+                        <td>
+                            <form style="display: inline-block;" action="{{ url_for('delete_member', member_type='monthly', member_id=member.id) }}" method="POST" onsubmit="return confirm('Apakah anda yakin ingin menghapus member ini?');">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
+                            <a href="{{ url_for('update_monthly_member', member_id=member.id) }}" class="btn btn-primary">Edit</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

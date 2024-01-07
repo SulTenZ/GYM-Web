@@ -1,0 +1,51 @@
+{% extends 'base_admin.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4">Manajemen GYM</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Member Harian</h5>
+                    <p class="card-text">Lihat & Manage Member Harian</p>
+                    <a href="{{ url_for('admin_daily_members') }}" class="btn btn-primary">Lihat Member</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Member Bulanan</h5>
+                    <p class="card-text">Lihat & Manage Member Bulanan</p>
+                    <a href="{{ url_for('admin_monthly_members') }}" class="btn btn-primary">Lihat Member</a>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tambah Member Harian</h5>
+                    <p class="card-text">Tambah Member Harian Baru ke Database</p>
+                    <a href="{{ url_for('add_daily_member') }}" class="btn btn-success">Tambah Member Harian</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tambah Member Bulanan</h5>
+                    <p class="card-text">Tambah Member Bulanan Baru ke Database</p>
+                    <a href="{{ url_for('add_monthly_member') }}" class="btn btn-success">Tambah Member Bulanan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
